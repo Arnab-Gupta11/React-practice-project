@@ -1,0 +1,52 @@
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: 2px solid rgb(164, 37, 164);
+  background-color: violet;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+.btn:hover {
+  background-color: rgb(164, 37, 164);
+  color: white;
+  cursor: pointer;
+}
+.toast {
+  border-radius: 10px;
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+.success {
+  background-color: #a5ffb8;
+  border: 1px solid #186629;
+  color: #186629;
+}
+.error {
+  background-color: #ffa5a5;
+  border: 1px solid #d70000;
+  color: #d70000;
+}
+.info {
+  background-color: #a5c1ff;
+  border: 1px solid #00479f;
+  color: #00479f;
+}
+.warn {
+  background-color: #fcf5ab;
+  border: 1px solid #a1a70e;
+  color: #a1a70e;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
