@@ -1,0 +1,32 @@
+.status-container {
+  min-height: 100vh;
+  border: 2px solid grey;
+  border-radius: 16px;
+  width: 100%;
+}
+.status-container-heading {
+  padding: 20px;
+  border-radius: 14px 14px 0px 0px;
+  font-weight: 600;
+  font-size: 18px;
+}
+.todo-container {
+  background-color: rgb(205, 229, 255);
+  border-bottom: 2px solid rgb(0, 45, 128);
+  color: rgb(0, 41, 128);
+}
+.ongoing-container {
+  background-color: rgb(253, 255, 205);
+  border-bottom: 2px solid rgb(244, 244, 48);
+  color: rgb(239, 239, 57);
+}
+.completed-container {
+  background-color: rgb(205, 255, 205);
+  border-bottom: 2px solid green;
+  color: green;
+}
+.status-card-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}

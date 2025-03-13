@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.all-product-container {
+  padding: 20px 10px;
+  margin: 0px auto;
+  max-width: 90%;
+}
+.product-card {
+  border: 3px solid grey;
+  width: 205px;
+  padding: 10px 5px;
+  flex-grow: 1;
+  border-radius: 12px;
+}
+.product-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: cornflowerblue;
+  padding: 8px 2px;
+}
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

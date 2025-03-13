@@ -1,0 +1,30 @@
+.drag-area {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(233, 232, 232);
+  border-radius: 12px;
+  border: 2px dashed gray;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+.drag-area:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+.drag-area-head1 {
+  font-weight: 700;
+  color: black;
+}
+.drag-area:hover .drag-area-head1 {
+  color: rgb(172, 0, 172);
+}
+.drag-area-head2 {
+  font-weight: 700;
+  color: gray;
+}
+.drag-area:hover .drag-area-head2 {
+  color: black;
+}

@@ -1,0 +1,13 @@
+.task-card {
+  box-shadow: 1px 1px 3px 0px #c6c5c5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: grab;
+}
+.task-card:active {
+  border: 2px solid gray;
+  box-shadow: 1px 1px 3px 0px #c6c5c5;
+  border-radius: 12px;
+  opacity: 0.6;
+}
