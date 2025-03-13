@@ -20,6 +20,7 @@ const objectURL = URL.createObjectURL(blobOrFile);
 ```
 
 ### `URL.createObjectURL()`
+
 **Parameters**: A File or Blob object.
 **Returns**: A temporary URL (e.g., `blob:http://example.com/...`).
 
@@ -37,11 +38,13 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPreview(imageUrl);
   }
 };
+```
 
 👉 The URL should be revoked when no longer needed to free memory:
 
 ```typescript
 URL.revokeObjectURL(imageUrl);
+```
 
 ## `FileReader.readAsDataURL()`
 
@@ -55,6 +58,7 @@ reader.onload = (e) => {
   console.log("File Content:", e.target?.result); // Base64 data URL
 };
 reader.readAsDataURL(selectedFile);
+```
 
 ### How It Works
 
@@ -73,6 +77,74 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     reader.readAsDataURL(file);
   }
 };
+```
 
 👉 No need to revoke, but uses more memory.
 
+---
+
+# **🌟 Cloudinary Image Upload Steps**
+
+## 🔹 Steps to Follow
+
+### 1. Create a Cloudinary Account and Get Your API Credentials:
+
+- **Cloud Name**
+- **API Key**
+- **API Secret**
+
+### 2. Cloudinary Setup (Important)
+
+1. Go to **Cloudinary Dashboard** → **"Upload Presets"** → Create a new upload preset.
+2. Enable **unsigned uploading** and set upload options (like folder, file type).
+
+### 3. Set Up a Cloudinary Upload Utility Function:
+
+This function will:
+
+- Upload multiple images.
+- Return an array of image URLs.
+
+---
+
+### 1️⃣ Utility File: `cloudinaryUploader.ts`
+
+```typescript
+export const uploadImagesToCloudinary = async (files: File[]): Promise<string[]> => {
+  const cloudName = "your_cloud_name"; // Replace with your Cloudinary cloud name
+  const uploadPreset = "your_upload_preset"; // Replace with your Cloudinary upload preset
+
+  const imageUrls: string[] = [];
+
+  for (const file of files) {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
+
+    try {
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.secure_url) {
+        imageUrls.push(data.secure_url); // Store the uploaded image URL
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  }
+
+  return imageUrls;
+};
+```
+
+## 🔹 What This Does:
+
+- Loops through each selected image.
+- Uploads it to Cloudinary using `fetch()`.
+- Stores the `secure_url` of each uploaded image in an array.
+- Returns the array of image URLs.
+
+---
