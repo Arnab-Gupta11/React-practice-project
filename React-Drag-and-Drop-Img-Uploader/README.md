@@ -87,6 +87,8 @@ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 ## 🔹 Steps to Follow
 
+[Cloudinary - Client-side Uploading](https://cloudinary.com/documentation/client_side_uploading#direct_call_to_the_api)
+
 ### 1. Create a Cloudinary Account and Get Your API Credentials:
 
 - **Cloud Name**
